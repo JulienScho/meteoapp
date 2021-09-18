@@ -1,0 +1,34 @@
+.meteo {
+    max-width: 250px;
+    margin: 1rem auto;
+    background-color: rgb(65, 98, 187);
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 3px;
+    text-align: left;
+}
+
+.meteo-container {
+    display: flex;
+}
+
+.meteo-infos {
+    width: 100%;
+}
+
+.meteo-temperature {
+    text-align: right;
+    margin: 0;
+    font-size: 2.5em;
+}
+
+.meteo-city {
+    margin: 0;
+    font-size: 1.5em;
+}
+
+.meteo-code {
+    margin: 0;
+    opacity: .25;
+    color: #FFF;
+}

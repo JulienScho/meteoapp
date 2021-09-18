@@ -18,10 +18,10 @@ const PrevisionList = ({ zipCode }) => {
     return (
         <>
             <h2 className="listTitle">Prévisions à 5j</h2>
-            <p>Aujourd'hui</p>
+            <p className="dayTitle">Aujourd'hui</p>
             <section className="prevision--list">
                 {apiForecastData.map((dataObject) => (
-                    <PrevisionItem temp={dataObject.main.temp} icon={dataObject.weather[0].icon} dateString={dataObject.dt_txt} />
+                    <PrevisionItem key={dataObject.dt_txt} temp={dataObject.main.temp} icon={dataObject.weather[0].icon} dateString={dataObject.dt_txt} />
                 ))}
             </section>
         </>

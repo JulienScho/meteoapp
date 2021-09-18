@@ -10,7 +10,9 @@ const Form = ({ city, setCity, zipCode, setZipCode, inputValue, setInputValue })
     const handleSubmit = (e) => {
         e.preventDefault();
         setZipCode(apiCityData[0].code);
+        localStorage.setItem('zipCode', apiCityData[0].code)
         setCity(apiCityData[0].city);
+        localStorage.setItem('city', apiCityData[0].city)
         setInputValue('');
     }
 

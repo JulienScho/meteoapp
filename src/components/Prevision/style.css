@@ -26,6 +26,12 @@
     width: 50%;
 }
 
+.dayTitle {
+    font-weight: bold;
+    font-size: 0.8rem;
+    color: rgb(41, 38, 38);
+}
+
 @media all and (max-width: 800px) {
     .prevision-item {
         width: calc(80%/4);

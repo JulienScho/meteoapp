@@ -6,7 +6,7 @@ const Input = ({ inputValue, setInputValue }) => {
     }
 
     return (
-        <label htmlFor="city"> Rechercher une ville par nom ou code postal : 
+        <label className="cityChoiceInput" htmlFor="city"> Rechercher une ville par nom ou code postal : 
             <input
                 onChange={handleChange}
                 value={inputValue}

@@ -5,6 +5,8 @@ import './style.css';
 const CurrentMeteo = ({ zipCode, city }) => {
     const [currentTemp, setCurrentTemp] = useState('##');
     const [weatherIcon, setweatherIcon] = useState('01d')
+    const [humidity, setHumidity] = useState(0);
+    const [windSpeed, setWindSpeed] = useState(0);
 
     const currentCity = city.toLowerCase().split("");
     currentCity[0] = currentCity[0].toUpperCase();
@@ -15,11 +17,14 @@ const CurrentMeteo = ({ zipCode, city }) => {
 
         axios.get(url)
             .then((response) => {
-                setCurrentTemp(Math.round(response.data.main.temp))
+                setCurrentTemp(Math.round(response.data.main.temp));
                 setweatherIcon(response.data.weather[0].icon);
+                setHumidity(response.data.main.humidity);
+                setWindSpeed(Math.round(response.data.wind.speed));
+                console.log(response.data);
 
                 // Modification du favicon
-                const link = document.querySelector("link[rel~='icon']");
+                let link = document.querySelector("link[rel~='icon']");
                 if (!link) {
                     link = document.createElement('link');
                     link.rel = 'icon';
@@ -34,7 +39,7 @@ const CurrentMeteo = ({ zipCode, city }) => {
 
     const date = new Date();
     const options = { weekday: "long", year: "numeric", month: "long", day: "2-digit" };
-    
+
     return (
         <article className="meteo" >
             <div className="meteo-container">
@@ -44,7 +49,15 @@ const CurrentMeteo = ({ zipCode, city }) => {
                 </div>
                 <p className="meteo-temperature" > {currentTemp}°C </p>
             </div>
-            <img src={`http://openweathermap.org/img/wn/${weatherIcon}@2x.png`} alt="icon" />
+
+            <div className="infosContainer">
+                <img src={`http://openweathermap.org/img/wn/${weatherIcon}@2x.png`} alt="icon" />
+                <div>
+                    <p className="infosSupp">Hygrométrie : {humidity}%</p>
+                    <p className="infosSupp">Vent : {windSpeed}km/h</p>
+                </div>
+            </div>
+
             <p>{date.toLocaleDateString("fr-FR", options)}</p>
         </article>
     )

@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import './App.css';
 import Form from '../Form/Form';
 import CurrentMeteo from '../CurrentMeteo/CurrentMeteo';
-import './App.css';
+import PrevisionList from '../Prevision/PrevisionList';
+
 
 function App() {
   //Création du state global
@@ -20,6 +22,7 @@ function App() {
         setInputValue={setInputValue}
       />
       <CurrentMeteo city={city} zipCode={zipCode} />
+      <PrevisionList zipCode={zipCode} />
     </div>
   );
 }

@@ -15,25 +15,26 @@ const CurrentMeteo = ({ zipCode, city }) => {
 
         axios.get(url)
             .then((response) => {
-                console.log(response.data)
-                //TODO afficher premier 10ème
                 setCurrentTemp(Math.round(response.data.main.temp))
                 setweatherIcon(response.data.weather[0].icon);
 
                 // Modification du favicon
-                // var link = document.querySelector("link[rel~='icon']");
-                // if (!link) {
-                //     link = document.createElement('link');
-                //     link.rel = 'icon';
-                //     document.getElementsByTagName('head')[0].appendChild(link);
-                // }
-                // link.href = `http://openweathermap.org/img/wn/${icon}@2x.png`;
+                const link = document.querySelector("link[rel~='icon']");
+                if (!link) {
+                    link = document.createElement('link');
+                    link.rel = 'icon';
+                    document.getElementsByTagName('head')[0].appendChild(link);
+                }
+                link.href = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`;
 
             }).catch((error) => {
                 console.log(error);
             })
-    }, [zipCode]);
+    }, [zipCode, weatherIcon]);
 
+    const date = new Date();
+    const options = { weekday: "long", year: "numeric", month: "long", day: "2-digit" };
+    
     return (
         <article className="meteo" >
             <div className="meteo-container">
@@ -44,6 +45,7 @@ const CurrentMeteo = ({ zipCode, city }) => {
                 <p className="meteo-temperature" > {currentTemp}°C </p>
             </div>
             <img src={`http://openweathermap.org/img/wn/${weatherIcon}@2x.png`} alt="icon" />
+            <p>{date.toLocaleDateString("fr-FR", options)}</p>
         </article>
     )
 };

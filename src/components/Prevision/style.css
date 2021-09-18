@@ -1,0 +1,34 @@
+.listTitle{
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.prevision--list {
+    max-width: 800px;
+    min-width: 250px;
+    margin: auto;
+    font-size: smaller;
+}
+
+.prevision-item {
+    display: inline-block;   
+    width: 10%; 
+    margin: 0.3rem auto;
+    background-color: rgba(8, 47, 156, 0.2);
+    border: 1px solid #ddd;
+    padding: 0.5rem;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.prevision-item-icon{
+    width: 50%;
+}
+
+@media all and (max-width: 800px) {
+    .prevision-item {
+        width: calc(80%/4);
+        padding: 1px;
+    }
+}

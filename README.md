@@ -5,7 +5,7 @@ Appplication météo basée sur les API [OpenWeatherMap](https://openweathermap.
 Composants developpés avec React(React Create App) et requêtes avec Axios.
 
 Evolutions futures :
-- visuel formulaire
+- Visuel formulaire
 - Ajout d'informations
 - Autres fonctionnalités d'affichage
 

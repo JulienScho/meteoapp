@@ -18,7 +18,9 @@ const Select = ({ inputValue, apiCityData, setApiCityData, setCity, setZipCode, 
     const handleChange = (e) => {
         const selectedCityData = e.target[e.target.selectedIndex].dataset;
         setZipCode(selectedCityData.code);
+        localStorage.setItem('zipCode', selectedCityData.code)
         setCity(selectedCityData.city);
+        localStorage.setItem('city', selectedCityData.city)
         setInputValue('');
         setApiCityData([])
     }
